@@ -7,13 +7,12 @@ import "izitoast/dist/css/iziToast.min.css";
 const loading = document.querySelector('.loading');
 const form = document.querySelector('.search-form');
 
-form.addEventListener('submit', (evt) => {
-    evt.preventDefault();
+async function onSearch(evt) {
+evt.preventDefault();
     const input = form.elements.query.value.trim().toLowerCase(); 
     if (input != '') {
         loading.style.display = 'block';
-    const responce = getPicturesByQuery(form.elements.query.value.toLowerCase());
-    responce.then((responce) => {
+    getPicturesByQuery(form.elements.query.value.toLowerCase()).then((responce) => {
         {
             if (responce.totalHits === 0) {
             iziToast.error({
@@ -41,5 +40,6 @@ form.addEventListener('submit', (evt) => {
         loading.style.display = 'none';
     })
     }
-    
-});
+}
+
+form.addEventListener('submit', onSearch);
