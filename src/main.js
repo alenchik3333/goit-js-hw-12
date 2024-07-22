@@ -6,13 +6,16 @@ import "izitoast/dist/css/iziToast.min.css";
 
 const loading = document.querySelector('.loading');
 const form = document.querySelector('.search-form');
+const btnSearch = document.getElementById('search');
+
+let pageNumber = 1;
 
 async function onSearch(evt) {
 evt.preventDefault();
     const input = form.elements.query.value.trim().toLowerCase(); 
     if (input != '') {
         loading.style.display = 'block';
-    getPicturesByQuery(form.elements.query.value.toLowerCase()).then((responce) => {
+    getPicturesByQuery(form.elements.query.value.toLowerCase(), pageNumber).then((responce) => {
         {
             if (responce.totalHits === 0) {
             iziToast.error({
@@ -42,4 +45,4 @@ evt.preventDefault();
     }
 }
 
-form.addEventListener('submit', onSearch);
+btnSearch.addEventListener('submit', onSearch);
