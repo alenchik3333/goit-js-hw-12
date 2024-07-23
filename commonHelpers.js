@@ -1,22 +1,22 @@
-import{S as p,i as c}from"./assets/vendor-0fc460d7.js";(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))o(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const a of t.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&o(a)}).observe(document,{childList:!0,subtree:!0});function r(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function o(e){if(e.ep)return;e.ep=!0;const t=r(e);fetch(e.href,t)}})();async function y(s,i){const o=await fetch(`https://pixabay.com/api?key=45032349-419aa61286db3245b797ba166&q=${s}&image_type=photo&orientation=horizontal&safesearch=true&per_page=15&page=${i}`);if(!o.ok)throw new Error(o.status);return await o.json()}const u=document.querySelector(".gallery");let l;function m(s){return s.map(({webformatURL:i,largeImageURL:r,tags:o,likes:e,views:t,comments:a,downloads:f})=>`
+import{S as v,i as l}from"./assets/vendor-0fc460d7.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))i(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const a of r.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function o(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(t){if(t.ep)return;t.ep=!0;const r=o(t);fetch(t.href,r)}})();async function m(s,e){const i=await fetch(`https://pixabay.com/api?key=45032349-419aa61286db3245b797ba166&q=${s}&image_type=photo&orientation=horizontal&safesearch=true&per_page=15&page=${e}`);if(!i.ok)throw new Error(i.status);return await i.json()}const p=document.querySelector(".gallery");let d;function b(s){return s.map(({webformatURL:e,largeImageURL:o,tags:i,likes:t,views:r,comments:a,downloads:h})=>`
   <li class="gallery-item">
   <div class="overley-image">
-    <a class="gallery-link" href="${r}">
+    <a class="gallery-link" href="${o}">
       <img
         class="gallery-image"
-        src="${i}" 
-        alt="${o}"
+        src="${e}" 
+        alt="${i}"
       />
     </a>
     </div>
     <div class="info">
     <div class="info-detail">
         <h2 class="title">Likes</h2>
-        <p class="text">${e}</p>
+        <p class="text">${t}</p>
     </div>
     <div class="info-detail">
         <h2 class="title">Views</h2>
-        <p class="text">${t}</p>
+        <p class="text">${r}</p>
     </div>
     <div class="info-detail">
         <h2 class="title">Comments</h2>
@@ -24,9 +24,9 @@ import{S as p,i as c}from"./assets/vendor-0fc460d7.js";(function(){const i=docum
     </div>
     <div class="info-detail">
         <h2 class="title">Downloads</h2>
-        <p class="text">${f}</p>
+        <p class="text">${h}</p>
     </div>
   </div>
   </li>
-  `).join("")}function g(s){l&&l.refresh(),u.innerHTML="",u.insertAdjacentHTML("afterbegin",m(s)),l=new p(".overley-image a",{captionsData:"alt",captionDelay:250})}const d=document.querySelector(".loading"),n=document.querySelector(".search-form"),h=document.getElementById("search");let v=1;async function b(s){s.preventDefault(),n.elements.query.value.trim().toLowerCase()!=""&&(d.style.display="block",y(n.elements.query.value.toLowerCase(),v).then(r=>{r.totalHits===0?c.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"}):(console.log(r.total),g(r.hits),n.elements.query.value="")}).catch(r=>{console.log(r),c.error({message:`Server error: ${r.message}`,position:"topRight"})}).finally(()=>{d.style.display="none"}))}h.addEventListener("submit",b);
+  `).join("")}function g(s,e){e||(d&&d.refresh(),p.innerHTML=""),p.insertAdjacentHTML(e?"beforeend":"afterbegin",b(s)),d=new v(".overley-image a",{captionsData:"alt",captionDelay:250})}const n=document.querySelector(".loading"),y=document.querySelector(".search-form"),c=document.querySelector(".next-form");let u=1,f="";async function L(s){s.preventDefault(),u=1;const e=y.elements.query.value.trim().toLowerCase();f=e,e!=""&&(n.style.display="block",m(y.elements.query.value.toLowerCase(),u).then(o=>{o.totalHits===0?l.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"}):(g(o.hits,!1),c.style.display="block")}).catch(o=>{console.log(o),l.error({message:`Server error: ${o.message}`,position:"topRight"})}).finally(()=>{n.style.display="none"}))}async function S(s){s.preventDefault(),u++,f!=""&&(n.style.display="block",c.style.display="none",m(f,u).then(e=>{e.totalHits===0?l.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"}):(g(e.hits,!0),c.style.display="block")}).catch(e=>{console.log(e),l.error({message:`Server error: ${e.message}`,position:"topRight"})}).finally(()=>{n.style.display="none"}))}y.addEventListener("submit",L);c.addEventListener("submit",S);
 //# sourceMappingURL=commonHelpers.js.map

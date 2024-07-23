@@ -14,20 +14,20 @@
     <script type="module" crossorigin src="/goit-js-hw-12/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-0fc460d7.js">
     <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-4b066c51.css">
-    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-428fdcb5.css">
+    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-025a6e72.css">
   </head>
   <body>
   <form class="search-form">
       <div class="form-group">
         <input type="text" class="form-control" name="query" placeholder="Search images..."/>
       </div>
-      <button type="submit" class="btn-primary" id="search">Search</button>
+      <button type="submit" class="btn btn-primary" id="search">Search</button>
     </form>
-    <div class="loading" style="display: none;">Loading images, please wait...</div>
+    <div class="loading" style="display: none">Loading images, please wait...</div>
     <ul class="gallery"></ul>
-    <div>
-      <button type="submit" class="btn-page">Load more</button>
-    </div>
+    <form class="next-form">
+      <button type="submit" class="btn btn-page" style="display: none" name="next">Load more</button>
+    </form>
     
   </body>
 </html>
