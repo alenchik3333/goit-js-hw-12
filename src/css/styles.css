@@ -87,12 +87,19 @@ body {
   text-align: center;
 }
 
-.next-form{
+.next-form {
    display: flex;
    justify-content: center;
+   transform: translateX(50);
 }
 
 .btn-page {
+  width: 125px;
+  height: 40px;
   margin-top: 28px;
   margin-bottom: 40px;
+  color: #FFFFFF;
+  background-color: #4E75FF;
+  border: none;
+  border-radius: 8px;
 }

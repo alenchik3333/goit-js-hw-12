@@ -61,7 +61,17 @@ async function onSearchNext(evt) {
                 });
         }
             else {
-                drawGallery(responce.hits, true);                
+                drawGallery(responce.hits, true);
+                /*
+                setTimeout(() => {
+                    const rect = form.getBoundingClientRect();
+                window.scrollBy({
+                top: rect.height,
+                behavior: "smooth",
+                });
+                }, 1000);
+                */
+                
                 formNext.style.display = 'block';
                 scroll();
           }     
