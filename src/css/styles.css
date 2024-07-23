@@ -90,7 +90,7 @@ body {
 .next-form {
    display: flex;
    justify-content: center;
-   transform: translateX(50);
+   transform: translateX(50%);
 }
 
 .btn-page {
