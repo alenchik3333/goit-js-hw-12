@@ -28,6 +28,7 @@ async function onSearch(evt) {
         }
             else {
                 drawGallery(responce.hits, false);
+                
                 formNext.style.display = 'block';
           }     
         }
@@ -60,8 +61,9 @@ async function onSearchNext(evt) {
                 });
         }
             else {
-                drawGallery(responce.hits, true);
+                drawGallery(responce.hits, true);                
                 formNext.style.display = 'block';
+                scroll();
           }     
         }
     
@@ -77,6 +79,13 @@ async function onSearchNext(evt) {
     })
     }
 }
-
+function scroll() {
+    const list = document.querySelector('li');
+    const height = list.getBoundingClientRect().height;
+    window.scrollBy({
+        top: height*2,
+        behavior: "smooth",
+    });
+}
 form.addEventListener('submit', onSearch);
 formNext.addEventListener('submit', onSearchNext);
