@@ -50,10 +50,16 @@ function createMarkup(arr) {
     )
     .join('');
 }
-function drawGallery(images) {
-  if (gallery) gallery.refresh();
-  galleryEl.innerHTML = '';
-  galleryEl.insertAdjacentHTML('afterbegin', createMarkup(images));
+function drawGallery(images, isNextPage) {
+    if (!isNextPage)
+    {
+        if (gallery)
+            gallery.refresh();
+         galleryEl.innerHTML = '';
+    }
+
+
+  galleryEl.insertAdjacentHTML(isNextPage ? 'beforeend' : 'afterbegin', createMarkup(images));
   gallery = new SimpleLightbox('.overley-image a', {
     captionsData: 'alt',
     captionDelay: 250,
